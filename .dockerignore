@@ -1,0 +1,9 @@
+.git
+.idea
+__pycache__
+*.pyc
+.env
+.env.example
+.gitignore
+test_nim.py
+::w::w:WQ

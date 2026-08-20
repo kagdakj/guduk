@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>결제 캘린더 — 구독소각기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/static/css/style.css?v=9">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <i data-lucide="flame"></i>
+                <span>구독소각기</span>
+            </a>
+            <div class="nav-actions">
+                <a href="/" class="btn-icon" title="대시보드">
+                    <i data-lucide="layout-dashboard" style="width:20px;height:20px"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="cal-page">
+            <!-- Header -->
+            <div class="cal-header">
+                <h1>결제 캘린더</h1>
+                <p class="text-secondary text-sm">매달 어떤 구독이 결제되는지 한눈에 확인하세요</p>
+            </div>
+
+            <!-- Month Navigation -->
+            <div class="cal-nav">
+                <button id="cal-prev" class="btn-icon"><i data-lucide="chevron-left" style="width:20px;height:20px"></i></button>
+                <h2 id="cal-month-label"></h2>
+                <button id="cal-next" class="btn-icon"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
+            </div>
+
+            <!-- Month Summary -->
+            <div class="card cal-summary">
+                <div class="cal-summary-item">
+                    <span class="label">이번 달 예상 지출</span>
+                    <span class="value" id="cal-total">0<span class="unit">원</span></span>
+                </div>
+                <div class="cal-summary-item">
+                    <span class="label">결제 예정 건수</span>
+                    <span class="value" id="cal-count">0<span class="unit">건</span></span>
+                </div>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="card" style="padding:12px;">
+                <div class="cal-grid">
+                    <div class="cal-day-header">일</div>
+                    <div class="cal-day-header">월</div>
+                    <div class="cal-day-header">화</div>
+                    <div class="cal-day-header">수</div>
+                    <div class="cal-day-header">목</div>
+                    <div class="cal-day-header">금</div>
+                    <div class="cal-day-header">토</div>
+                </div>
+                <div id="cal-days" class="cal-grid"></div>
+            </div>
+
+            <!-- Day Detail -->
+            <div id="cal-detail" class="card hidden" style="margin-top:16px;">
+                <div class="section-header" style="margin-bottom:12px;">
+                    <i data-lucide="credit-card" style="width:18px;height:18px;color:var(--accent)"></i>
+                    <h2 id="cal-detail-title"></h2>
+                </div>
+                <ul id="cal-detail-list" class="subs-list"></ul>
+            </div>
+
+            <!-- No data state -->
+            <div id="cal-empty" class="card hidden" style="text-align:center;padding:48px 20px;">
+                <p class="text-secondary">아직 구독 데이터가 없습니다.</p>
+                <a href="/" class="btn-primary" style="display:inline-flex;margin-top:16px;">
+                    <i data-lucide="plus" style="width:16px;height:16px"></i> 내역 추가하러 가기
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/calendar.js?v=9"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
